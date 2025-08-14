@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wedding Invitation</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="countdown.js" defer></script>
 </head>
 <body>
 
-  <!-- Envelope Intro Screen -->
-  <div id="envelope" class="envelope-screen">
-    <div class="envelope-flap"></div>
-    <div class="envelope-body"></div>
+<!-- Envelope Intro -->
+<div id="envelopeScreen" class="envelope-screen">
+  <div class="envelope-flap"></div>
+  <div class="envelope-body">
     <div class="envelope-bottom-lines">
       <div class="left-line"></div>
       <div class="right-line"></div>
     </div>
-    <div class="heart-button">❤️</div>
+  </div>
+  <button id="heartButton" class="heart-button">❤️</button>
+</div>
+
+<!-- Main Invitation -->
+<section class="invitation-container hidden" id="mainInvitation">
+
+  <!-- Video Section -->
+  <div class="video-wrapper">
+    <video id="weddingVideo" loop>
+      <source src="https://drive.google.com/uc?export=download&id=1VHTFY-LcdR-lrNXgITP-oHJFWjIU_Tk_" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
-  <!-- Main Invitation Content -->
-  <div class="invitation-container">
-    <img src="1.png" class="flower-decor flower-top-left" alt="">
-    <img src="2.png" class="flower-decor flower-top-right" alt="">
-    <img src="3.png" class="flower-decor flower-bottom-left" alt="">
-    <img src="4.png" class="flower-decor flower-bottom-right" alt="">
+  <!-- Countdown -->
+  <div class="countdown" id="countdown">
+    <div><span id="days">0</span>Days</div>
+    <div><span id="hours">0</span>Hours</div>
+    <div><span id="minutes">0</span>Minutes</div>
+    <div><span id="seconds">0</span>Seconds</div>
+  </div>
 
-    <!-- Wedding Video Section -->
-    <div class="video-container">
-      <video id="wedding-video" loop playsinline>
-        <source src="https://drive.google.com/uc?export=download&id=1VHTFY-LcdR-lrNXgITP-oHJFWjIU_Tk_" type="video/mp4">
-        Your browser doesn't support the video tag.
-      </video>
-    </div>
-
-    <!-- Ceremony Section -->
-    <div class="overlay-section" style="background-image: url('church.jpg');">
-      <div class="overlay-content">
-        <div class="overlay-text">Saint Anthony Abbot Parish</div>
-        <a href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" class="location-btn" target="_blank">Get Direction</a>
-      </div>
-    </div>
-
-    <!-- Reception Section -->
-    <div class="overlay-section" style="background-image: url('reception.jpg');">
-      <div class="overlay-content">
-        <div class="overlay-text">Resort Balai Alexandra</div>
-        <a href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" class="location-btn" target="_blank">Get Direction</a>
-      </div>
+  <!-- Ceremony Section -->
+  <div class="overlay-section" style="background-image: url('church.jpg');">
+    <div class="overlay-content">
+      <div class="overlay-text">Saint Anthony Abbot Parish</div>
+      <a class="location-btn" href="https://maps.app.goo.gl/ir7F7PKpYsXQX29T7" target="_blank">Get Directions</a>
     </div>
   </div>
 
-  <!-- JavaScript -->
-  <script>
-    document.querySelector('.heart-button').addEventListener('click', () => {
-      document.getElementById('envelope').classList.add('fade-out');
-      setTimeout(() => {
-        document.getElementById('envelope').style.display = 'none';
-        document.getElementById('wedding-video').play();
-      }, 1000);
-    });
-  </script>
+  <!-- Reception Section -->
+  <div class="overlay-section" style="background-image: url('reception.jpg');">
+    <div class="overlay-content">
+      <div class="overlay-text">Reception Hall</div>
+      <a class="location-btn" href="https://maps.app.goo.gl/1zQySSjjKZmguccs5" target="_blank">Get Directions</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    We can’t wait to celebrate with you!
+  </div>
+</section>
+
+<script>
+  const heartButton = document.getElementById('heartButton');
+  const envelopeScreen = document.getElementById('envelopeScreen');
+  const mainInvitation = document.getElementById('mainInvitation');
+  const weddingVideo = document.getElementById('weddingVideo');
+
+  heartButton.addEventListener('click', () => {
+    envelopeScreen.classList.add('fade-out');
+    setTimeout(() => {
+      envelopeScreen.classList.add('hidden');
+      mainInvitation.classList.remove('hidden');
+      weddingVideo.play();
+    }, 1000);
+  });
+</script>
+
 </body>
 </html>
