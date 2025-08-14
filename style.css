@@ -8,6 +8,36 @@ body {
   position: relative;
 }
 
+.save-the-date-section {
+  padding: 1rem;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'AmsterdamFour', cursive;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.save-text-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.save-date-word {
+  font-size: 4rem;
+  text-transform: capitalize;
+}
+
+.save-date-small {
+  font-size: 1.5rem;
+  text-transform: lowercase;
+  margin-top: 1rem;
+}
+
 .invitation-container {
   padding: 2rem;
   max-width: 800px;
@@ -35,6 +65,106 @@ body {
 .flower-top-right { top: -30px; right: -30px; }
 .flower-bottom-left { bottom: -30px; left: -30px; }
 .flower-bottom-right { bottom: -30px; right: -30px; }
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #5c6d82;
+}
+
+.countdown span {
+  font-weight: bold;
+  font-size: 2.5rem;
+  display: block;
+  color: #a2b9d4;
+}
+
+.overlay-section {
+  margin-top: 2rem;
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.overlay-content {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 15px 15px;
+}
+
+.overlay-text {
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 0.5rem;
+}
+
+.location-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #a2b9d4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.glitter-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.glitter {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: radial-gradient(circle, #fff6d1 0%, #fceabb 60%, transparent 100%);
+  border-radius: 50%;
+  animation: glitter-fall 10s linear infinite;
+  opacity: 0.8;
+  filter: blur(0.5px);
+}
+
+@keyframes glitter-fall {
+  0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .save-date-word { font-size: 2.5rem; }
+  .save-date-small { font-size: 1rem; }
+  .countdown { font-size: 1.4rem; }
+  .countdown span { font-size: 2rem; }
+  .overlay-text { font-size: 1.4rem; }
+  .location-btn { font-size: 0.9rem; padding: 0.5rem 1rem; }
+  .flower-decor { width: 25vw; max-width: 120px; }
+}
 
 /* 💌 Envelope Screen with Flap Style */
 .envelope-screen {
@@ -131,7 +261,7 @@ body {
 /* Video responsiveness */
 .video-wrapper {
   position: relative;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%; /* 16:9 */
   height: 0;
 }
 
